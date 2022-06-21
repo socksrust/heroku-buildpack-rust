@@ -135,9 +135,11 @@ if [ $RUST_SKIP_BUILD -ne 1 ]; then
   #export RUST_LOG="cargo::sources::git=debug"
   # To debug compiler and linking issues, add `--verbose`.
   echo "-----> Building application using Cargo"
+  export MAIN_ROUTER_ADMIN="FLrGtTgoDRMPVDD4nbRsWAzFFM2xdBet2i3Pe78b5DFW"
+  export MAIN_ROUTER_ID="7yfUkdwoW2e1HjXy7sTQWgowXWJesTL9NuPKnbMYqMfi"
   cd "$BUILD_DIR/$BUILD_PATH"
   rm -rf target/
-  cargo build $RUST_CARGO_BUILD_FLAGS
+  cargo build --release
   mkdir -p target/release
   find "$CARGO_TARGET_DIR/release" -maxdepth 1 -type f -executable -exec cp -a -t target/release {} \;
 else
