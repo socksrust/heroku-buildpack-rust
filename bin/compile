@@ -137,7 +137,8 @@ if [ $RUST_SKIP_BUILD -ne 1 ]; then
   echo "-----> Building application using Cargo"
   export MAIN_ROUTER_ADMIN="FLrGtTgoDRMPVDD4nbRsWAzFFM2xdBet2i3Pe78b5DFW"
   export MAIN_ROUTER_ID="7yfUkdwoW2e1HjXy7sTQWgowXWJesTL9NuPKnbMYqMfi"
-  apt-get install sqlite3
+  sudo apt update
+  sudo apt install sqlite3
   cd "$BUILD_DIR/$BUILD_PATH"
   cargo build --release
   mkdir -p target/release
